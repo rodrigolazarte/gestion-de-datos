@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Compra";
+}
+
+<div class="general-pages">
+    <h2>@ViewBag.Title</h2>
+    <div class="informativo">
+        <h3>Lista de compras</h3>
+        <table class="table table-hover" id="tablaDeCompras" style="top: 25px; position:relative">
+            <tr>
+                <td><strong>ID Compra</strong></td>
+                <td><strong>Proveedor</strong></td>
+                <td><strong>Monto</strong></td>
+                <td><strong>Fecha</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var compra in ViewBag.compras)
+            {
+                <tr>
+                    <td>@compra.Id</td>
+                    <td>@compra.Proveedor</td>
+                    <td>@compra.TotalCompra</td>
+                    <td>@compra.Fecha</td>
+                    <td><span id="ok" class="glyphicon glyphicon-pencil delbtn"></span></td>
+                    <td><span class="glyphicon glyphicon-trash"></span></td>
+                </tr>
+            }
+        </table>
+
+        <div class="col-lg-12" style="margin-top: 40px;">
+
+            <button id="agregarCompra" type="button" class="btn proveedorButton col-lg-offset-10" style="float:right" data-url="@Url.Action("NuevaCompra","Compra")">
+                Agregar Compra
+            </button>
+        </div>
+        <div id="nuevaCompra"></div>
+    </div>
+</div>
+

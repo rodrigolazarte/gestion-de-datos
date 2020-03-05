@@ -1,0 +1,181 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Estilos propios de la página*/
+
+.menulateral {
+    left: 0px;
+    position: absolute;
+    width: 175px;
+}
+
+.menulateralopcion {
+    background-color: #c80000;
+    height: 30px;
+    text-align: left;
+    margin-top: 4px;
+    position: relative;
+}
+
+    .menulateralopcion:focus,
+    .menulateralopcion:hover {
+        background-color: #f0b400;
+    }
+
+.medio {
+    left: 100px;
+    width: 100%;
+}
+
+.menuprincipal {
+    left: 180px;
+    position: fixed;
+}
+
+.adt {
+    left: 5px;
+    top: 3px;
+    position: relative;
+}
+
+.informativo {
+    left: 180px;
+    min-height: 100vh;
+}
+
+.logo {
+    height: 150px;
+    background-color: none;
+}
+
+.menusuperior {
+    background-color: #c80000 !important;
+    border-color: white !important;
+    color: white !important;
+}
+
+.menuAtionLink {
+    color: white;
+    margin-left: 5px;
+}
+
+    .menuAtionLink:focus,
+    .menuAtionLink:hover {
+        color: white !important;
+    }
+
+/* Estilo del tab control*/
+.tab {
+    overflow: hidden;
+    border: 1px solid #f0b400;
+    background-color: #ffff99;
+    max-width: 85%;
+}
+
+    .tab button {
+        background-color: #ffff99;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        .tab button:hover {
+            background-color: #ffff66;
+        }
+
+        .tab button.active {
+            background-color: #f0b400;
+            color: white;
+        }
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-width: 85%;
+}
+
+.estiloHelveticaTitulo {
+    font-weight: inherit;
+    font: bold 40px Helvetica;
+    color: #404040;
+}
+
+.estiloHelvetica {
+    font-weight: inherit;
+    font: bold 18px Helvetica;
+    color: #404040;
+}
+
+.estiloHelveticaForm {
+    font-weight: inherit;
+    font: bold 15px Helvetica;
+    color: #404040;
+}
+
+/*Boton de Proveedores*/
+.proveedorButton {
+    background-color: #f0b400 !important;
+    color: white !important;
+    font-size: 17px !important;
+}
+
+    .proveedorButton:active,
+    .proveedorButton:hover,
+    .proveedorButton:focus {
+        outline: 1px dotted #ffff00 !important;
+    }
+
+/*labels del formulario defs proveedores*/
+.fieldForm {
+    height: 40px;
+    margin-left: 25px;
+    position: relative;
+}
+
+.tablaProductos td:nth-child(1) {
+    width: 30px;
+}
+
+.tablaProductos td:nth-child(2) {
+    width: 100px;
+}
+
+.tablaProductos td:nth-child(3) {
+    width: 30px;
+}
+
+.tablaProductos td:nth-child(4) {
+    width: 20px;
+}
+
+.general-pages {
+    margin-left: 10%;
+}

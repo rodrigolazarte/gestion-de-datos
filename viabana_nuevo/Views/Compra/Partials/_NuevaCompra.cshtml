@@ -1,0 +1,21 @@
+﻿<div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-shopping-cart"></span> Nueva compra</div>
+
+<div class="col-lg-5">
+    <div class="form-group">
+        <div>
+            <label class="estiloHelveticaForm">Proveedor</label>
+        </div>
+        <select class="form-control" style="float: left;" id="listaProveedores">
+            @foreach(var proveedor in ViewBag.Proveedores)
+            {
+                <option>@proveedor</option>
+            }
+        </select>
+        <input type="button" 
+               class="btn btn-primary" 
+               id="botonVerProductos" 
+               style="float:left;" 
+               value="Ver Productos"
+               />
+    </div>
+</div>

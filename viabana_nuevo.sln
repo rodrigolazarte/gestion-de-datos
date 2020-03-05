@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "viabana_nuevo", "viabana_nuevo\viabana_nuevo.csproj", "{6F3B7768-1A88-4CE1-876A-B691B5FDDACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F3B7768-1A88-4CE1-876A-B691B5FDDACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3B7768-1A88-4CE1-876A-B691B5FDDACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3B7768-1A88-4CE1-876A-B691B5FDDACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3B7768-1A88-4CE1-876A-B691B5FDDACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBDFC0FB-3809-4AD7-9D4C-34E9F42B595B}
+	EndGlobalSection
+EndGlobal
