@@ -1,1 +1,23 @@
 ﻿
+<div class="form-group" style="position:relative; margin-top: 70px">
+    <table>
+        <tr>
+            <td width="15%"><strong>ID</strong></td>
+            <td width="50%"><strong>Producto</strong></td>
+            <td width="15%"><strong>Precio</strong></td>
+            <td width="10%"><strong>Cantidad</strong></td>
+            <td width="10%"></td>
+        </tr>
+
+        @foreach(var producto in ViewBag.Productos)
+        {
+    <tr>
+        <td width="15%">@producto.Id</td>
+        <td width="50%">@producto.Descripcion</td>
+        <td width="15%">@producto.Precio</td>
+        <td width="10%">@producto.Proveedor</td>
+        <td width="10%"></td>
+    </tr>
+        }
+    </table>
+</div>
