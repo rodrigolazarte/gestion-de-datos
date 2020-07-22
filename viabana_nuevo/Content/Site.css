@@ -45,8 +45,7 @@ textarea {
     }
 
 .medio {
-    left: 100px;
-    width: 100%;
+    margin-left: 200px;
 }
 
 .menuprincipal {
@@ -178,4 +177,69 @@ textarea {
 
 .general-pages {
     margin-left: 10%;
+}
+
+.contenedor{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-color: black;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+
+.imagenCategoria{
+    transition: opacity 0.5s;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+}
+.imagenCategoria:hover {
+    opacity: 0.2;
+}
+
+.textoImagen{
+    color: white;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    top: 45%;
+}
+
+.bordeRedondo {
+    transition: background-color linear 1s;
+    border: 3px solid brown;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+}
+
+.bordeRedondo:hover{
+    background-color: #FFAB31;
+}
+
+.contenedorSeccion {
+    border: solid #FF5631;
+    overflow-x: auto;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #ffc578 0%,#fb9d23 100%);
+}
+
+.contenedorSeccion::-webkit-scrollbar {
+    height: 8px;
+    width: 8px; 
+    display: none 
+}
+
+.contenedorSeccion::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.contenedorSeccion:hover::-webkit-scrollbar{
+    display: initial;
 }

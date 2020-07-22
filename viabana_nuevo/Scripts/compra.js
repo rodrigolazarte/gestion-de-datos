@@ -4,6 +4,23 @@ $(document).ready(function () {
     $("#agregarCompra").click(function () {
         var url = $(this).data('url');
         $("#nuevaCompra").load(url);
+    }) 
+})
+
+//$(document).ready(function () {
+//    $("#botonVerProductos").click(function () {
+//        var index = $('#listaProveedores option:selected').text();
+//        var url = $(this).data('url');
+//        url = url.replace("param-index", index)
+//        $("#listaProductos").load(url);
+//    })
+//})
+
+$(document).ready(function () {
+    $("#botonVerProductos").click(function () {
+        var url = $(this).data('url');
+        var id = $("#listaProveedores :selected").val();
+        url = url.replace("param-index", id);
+        $("#listaProductos").load(url);
     })
-    
 })
