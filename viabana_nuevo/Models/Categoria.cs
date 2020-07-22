@@ -5,14 +5,11 @@ using System.Web;
 
 namespace viabana_nuevo.Models
 {
-    public class Producto
+    public class Categoria
     {
-        public string Descripcion { get; set; }
-        public float Precio { get; set; }
         public int Id { get; set; }
-        public string Proveedor { get; set; }
+        public string Descripcion { get; set; }
 
         public string UrlImagen { get; set; }
-
     }
 }

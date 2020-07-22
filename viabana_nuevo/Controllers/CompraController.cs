@@ -54,6 +54,7 @@ namespace viabana_nuevo.Controllers
             List<Producto> ListaProductos = new List<Producto>();
             var producto1 = new Producto();
             var producto2 = new Producto();
+            var producto3 = new Producto();
 
             producto1.Descripcion = "Producto 1";
             producto1.Id = 1;
@@ -65,14 +66,20 @@ namespace viabana_nuevo.Controllers
             producto2.Precio = 190;
             producto2.Proveedor = "Proveedor2";
 
+            producto3.Descripcion = "Producto 3";
+            producto3.Id = 3;
+            producto3.Precio = 190;
+            producto3.Proveedor = "Proveedor2";
+
             ListaProductos.Add(producto1);
             ListaProductos.Add(producto2);
+            ListaProductos.Add(producto3);
 
             List<Producto> listaFiltrada = ListaProductos.Where(x => x.Proveedor.Equals(index)).ToList();
 
             ViewBag.Productos = listaFiltrada;
 
-            return PartialView("Partials/_ListaProductosDeProveedor");
+            return PartialView("Partials/_ListaProductos");
 
         }
     }

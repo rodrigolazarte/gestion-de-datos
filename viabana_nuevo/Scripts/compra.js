@@ -7,11 +7,20 @@ $(document).ready(function () {
     }) 
 })
 
+//$(document).ready(function () {
+//    $("#botonVerProductos").click(function () {
+//        var index = $('#listaProveedores option:selected').text();
+//        var url = $(this).data('url');
+//        url = url.replace("param-index", index)
+//        $("#listaProductos").load(url);
+//    })
+//})
+
 $(document).ready(function () {
     $("#botonVerProductos").click(function () {
-        var index = $('#listaProveedores option:selected').text();
         var url = $(this).data('url');
-        url = url.replace("param-index", index)
+        var id = $("#listaProveedores :selected").val();
+        url = url.replace("param-index", id);
         $("#listaProductos").load(url);
     })
 })

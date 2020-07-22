@@ -1,0 +1,23 @@
+﻿@{ 
+    Layout = null;
+}
+<script src="~/Scripts/venta.js"></script>
+
+    <div class="col-lg-5 contenedorSeccion"
+         style="        
+        border: solid #FF5631;
+        overflow-x: auto;
+        float: left;
+        margin-right: 5%
+    ">
+        @foreach (var producto in ViewBag.Productos)
+        {
+            <div class="col-md-5" style="margin-top: 2%; margin-bottom: 2%">
+                <div class="contenedor">
+                    <p class="textoImagen">@producto.Descripcion</p>
+                    <a href="#" data-id="@producto.Id" data-descripcion="@producto.Descripcion" class="agregarProducto"><img class="imagenCategoria" src="@producto.UrlImagen" /></a>
+                </div>
+            </div>
+        }
+
+    </div>

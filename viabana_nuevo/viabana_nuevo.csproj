@@ -122,9 +122,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +140,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Bombon.png" />
+    <Content Include="Images\cuadro negro.jpg" />
+    <Content Include="Images\cucuruchos.jpg" />
+    <Content Include="Images\Kilo.jpg" />
     <Content Include="Images\viabanalogo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -153,6 +159,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\venta.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -170,7 +177,9 @@
     <Content Include="Views\Home\Partials\_Modulos.cshtml" />
     <Content Include="Views\Compra\Compra.cshtml" />
     <Content Include="Views\Compra\Partials\_NuevaCompra.cshtml" />
-    <Content Include="Views\Compra\Partials\_ListaProductosDeProveedor.cshtml" />
+    <Content Include="Views\Compra\Partials\_ListaProductos.cshtml" />
+    <Content Include="Views\Venta\Venta.cshtml" />
+    <Content Include="Views\Venta\Partials\_ListaProductos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

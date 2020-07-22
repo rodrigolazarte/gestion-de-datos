@@ -1,24 +1,50 @@
-﻿<div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-shopping-cart"></span> Nueva compra</div>
+﻿<script src="~/Scripts/compra.js"></script>
+<div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-shopping-cart"></span> Nueva compra</div>
 
 <div class="col-lg-5">
-    <script src="~/Scripts/compra.js"></script>
+
     <div class="form-group">
         <div>
             <label class="estiloHelveticaForm">Proveedor</label>
         </div>
         <select class="form-control" style="float: left;" id="listaProveedores">
-            @foreach(var proveedor in ViewBag.Proveedores)
+            @*@foreach (var proveedor in ViewBag.Proveedores)
             {
                 <option>@proveedor</option>
-            }
+            }*@
+            <option value="1">Proveedor1</option>
+            <option value="2">Proveedor2</option>
         </select>
-        <input type="button" 
-               class="btn btn-primary" 
-               id="botonVerProductos" 
-               style="float:left;" 
+        <input type="button"
+               class="btn btn-primary"
+               id="botonVerProductos"
+               style="float:left;"
                value="Ver Productos"
-               data-url="@Url.Action("ListaDeProductos", "Compra", new {index = "param-index"})"
-               />
+               data-url="@Url.Action("ListaDeProductos", "Compra", new {index = "param-index"})" />
     </div>
     <div id="listaProductos"></div>
+</div>
+<div class="col-lg-6" id="tablaProductos">
+    <div style="height:170px; width:500px; overflow:auto">
+        <table class="table table-hover tablaCargaProductos" style="margin-top:20px; margin-left:10px; float:left; width:90%">
+            <thead>
+                <tr>
+                    <td width="40%"><strong>Producto</strong></td>
+                    <td width="15%"><strong>Precio</strong></td>
+                    <td width="15%"><strong>Cantidad</strong></td>
+                    <td width="20%"><strong>SubTotal</strong></td>
+                    <td width="10%"></td>
+                </tr>
+            </thead>
+            <tbody id="bodyTableProductos">
+                @* Carga de productos por JS *@
+            </tbody>
+        </table>
+    </div>
+    <label style="margin-left:10px;">Total de la compra: </label>
+    <input type="number" id="totalCompra" value="0" readonly />
+</div>
+<div class="col-lg-1">
+    <input type="button" class="btn btn-danger" value="Confirmar" id="agregarACompra" style="float:right; margin-left:10px; margin-top:20px; width:100px;" />
+    <input type="button" class="btn btn-primary" value="Cancelar" id="cancelarCarga" style="float:right; margin-left:10px; margin-top:20px; width:100px;" />
 </div>
