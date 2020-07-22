@@ -1,0 +1,8 @@
+﻿<div>
+    <select class="form-control" style="float:left">
+        @foreach(var producto in ViewBag.Productos)
+        {
+            <option>@producto.Descripcion</option>
+        }
+    </select>
+</div>
