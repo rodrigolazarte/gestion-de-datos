@@ -35,7 +35,7 @@
             
         </div>
         <div class="col-md-5"
-             style="float:left; height: 250px; position: fixed; top: 49%; left: 51%"
+             style="float:left; height: 250px; position: fixed; top: 49%; left: 51%; overflow-y:auto"
              id="tablaVentaProductos">
             <table class="table table-hover tablaCargaProductos" style="margin-top:20px; margin-left:10px; float:left; width:90%">
                 <thead>
@@ -53,6 +53,8 @@
             </table>
             <label style="margin-left:10px;">Total de la compra: </label>
             <input type="number" id="totalCompra" value="0" readonly />
+            <input type="button" class="btn-danger botonAceptar" value="Aceptar" data-url="@Url.Action("AceptarVenta", "Venta")"/>
+            <a class="btn-danger" href="@Url.Action("AceptarVenta","Venta")">Ir a pagina</a>
         </div>
     </div>
 </body>

@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+@*@model List<viabana_nuevo.Models.LineaDeVenta>*@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AceptarVenta</title>
+</head>
+<body>
+    <div>
+        @foreach(var lineaDeVenta in Model){
+            <span>@lineaDeVenta.Descripcion @lineaDeVenta.Cantidad</span>
+        }
+        <span>SI CARGA</span>
+        
+    </div>
+</body>
+</html>

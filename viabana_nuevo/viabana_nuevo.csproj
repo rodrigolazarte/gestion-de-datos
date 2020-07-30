@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\LineaDeVenta.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +181,7 @@
     <Content Include="Views\Compra\Partials\_ListaProductos.cshtml" />
     <Content Include="Views\Venta\Venta.cshtml" />
     <Content Include="Views\Venta\Partials\_ListaProductos.cshtml" />
+    <Content Include="Views\Venta\AceptarVenta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

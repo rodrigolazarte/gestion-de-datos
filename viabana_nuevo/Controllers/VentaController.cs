@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,8 +8,13 @@ using viabana_nuevo.Models;
 
 namespace viabana_nuevo.Controllers
 {
+    public static class Modelo
+    {
+        public static List<LineaDeVenta> ListaLDV { get; set; }
+    }
     public class VentaController : Controller
     {
+        
         // GET: Venta
         public ActionResult Venta()
         {
@@ -96,5 +102,20 @@ namespace viabana_nuevo.Controllers
 
             return View("Partials/_ListaProductos");
         }
+
+        [HttpPost]
+        public ActionResult AceptarVenta(List<LineaDeVenta> lista)
+        {
+            Modelo.ListaLDV = lista;
+            return View(lista);
+        }
+
+        [HttpGet]
+        public ActionResult AceptarVenta()
+        {
+            return View(Modelo.ListaLDV);
+        }
+
+
     }
 }
