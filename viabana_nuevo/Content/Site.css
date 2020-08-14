@@ -243,3 +243,8 @@ textarea {
 .contenedorSeccion:hover::-webkit-scrollbar{
     display: initial;
 }
+
+.alertaInvalido {
+    border-radius: 5px;
+    border: groove #fc2929;
+}

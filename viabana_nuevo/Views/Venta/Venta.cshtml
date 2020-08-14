@@ -5,6 +5,8 @@
 
 <!DOCTYPE html>
 
+@model List<viabana_nuevo.Models.LineaDeVenta>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -35,24 +37,48 @@
             
         </div>
         <div class="col-md-5"
-             style="float:left; height: 250px; position: fixed; top: 49%; left: 51%"
+             style="float:left; height: 250px; position: fixed; top: 49%; left: 51%; overflow-y:auto"
              id="tablaVentaProductos">
             <table class="table table-hover tablaCargaProductos" style="margin-top:20px; margin-left:10px; float:left; width:90%">
                 <thead>
                     <tr>
-                        <td width="40%"><strong>Producto</strong></td>
+                        <td width="10%"><strong>Código</strong></td>
+                        <td width="35%"><strong>Producto</strong></td>
                         <td width="15%"><strong>Precio</strong></td>
                         <td width="15%"><strong>Cantidad</strong></td>
-                        <td width="20%"><strong>SubTotal</strong></td>
+                        <td width="15%"><strong>SubTotal</strong></td>
                         <td width="10%"></td>
                     </tr>
                 </thead>
                 <tbody id="bodyTableProductos">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var lineaDeVenta in Model)
+                            {
+                                <tr>
+                                    <td>@lineaDeVenta.IdProducto</td>
+                                    <td>@lineaDeVenta.Producto.Nombre</td>
+                                    <td>@lineaDeVenta.Producto.Precio</td>
+                                    <td>@lineaDeVenta.Cantidad</td>
+                                    <td>@lineaDeVenta.Subtotal</td>
+                                    <td><span class="glyphicon glyphicon-erase btnEliminarProducto"></span></td>
+                                </tr>
+                            }
+                        }
+                    }
+
                     @* Carga de productos por JS *@
                 </tbody>
             </table>
-            <label style="margin-left:10px;">Total de la compra: </label>
+            @*<label style="margin-left:10px;">Total de la compra: </label>
             <input type="number" id="totalCompra" value="0" readonly />
+            <input type="button" class="btn-danger botonAceptar" style="border-radius: 10px; width: 80px" value="Aceptar" data-url="@Url.Action("AceptarVenta", "Venta")"/>*@
+        </div>
+        <div class="col-md-5" style="position:fixed; top: 90%; left: 51%">
+            <label style="margin-left:10px;">Total de la compra: </label>
+            <input type="number" id="totalCompra" value="@ViewBag.Subtotal" readonly />
+            <input type="button" class="btn btn-danger botonAceptar" value="Aceptar" data-url="@Url.Action("AceptarVenta", "Venta")" />
         </div>
     </div>
 </body>
