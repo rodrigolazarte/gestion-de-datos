@@ -1,6 +1,9 @@
 ﻿@{ 
     Layout = null;
 }
+
+@model List<viabana_nuevo.Models.Producto>
+
 <script src="~/Scripts/venta.js"></script>
 
     <div class="col-lg-5 contenedorSeccion"
@@ -10,14 +13,49 @@
         float: left;
         margin-right: 5%
     ">
-        @foreach (var producto in ViewBag.Productos)
-        {
-            <div class="col-md-5" style="margin-top: 2%; margin-bottom: 2%">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td width="10%"><strong>Info</strong></td>
+                    <td width="45%"><strong>Producto</strong></td>
+                    <td width="15%"><strong>Precio</strong></td>
+                    <td width="20%"><strong>Cantidad</strong></td>
+                    <td width="10%"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    @*<div class="col-md-5" style="margin-top: 2%; margin-bottom: 2%">
                 <div class="contenedor">
                     <p class="textoImagen">@producto.Descripcion</p>
                     <a href="#" data-id="@producto.Id" data-descripcion="@producto.Descripcion" class="agregarProducto"><img class="imagenCategoria" src="@producto.UrlImagen" /></a>
                 </div>
-            </div>
-        }
+            </div>*@
+                    <tr>
+                        <td width="10%"><span class="glyphicon glyphicon-info-sign" 
+                                              data-toggle="tooltip" 
+                                              data-placement="right"
+                                              title="@producto.Descripcion"></span></td>
+                        <td width="45%">@producto.Nombre</td>
+                        <td width="15%">@producto.Precio</td>
+                        <td width="20%"><input type="number"
+                                               class="inputCantidad"
+                                               placeholder="0"
+                                               min="0"
+                                               max="100"
+                                               data-toggle="tooltip"
+                                               data-placement="right"
+                                               /></td>
+                        <td width="10%"><span class="glyphicon glyphicon-ok agregarProducto"
+                                              data-nombre="@producto.Nombre"
+                                              data-id="@producto.Id"
+                                              data-precio="@producto.Precio"
+                                              ></span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
 
     </div>

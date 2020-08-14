@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+@model List<viabana_nuevo.Models.LineaDeVenta>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AceptarVenta</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h1>Resumen de Venta</h1>
+        <div class="col-md-5" style="height: 300px; overflow-y: auto">
+            <table class="table table-hover tablaCargaProductos" style="margin-top: 30px; margin-left: 10%">
+                <thead>
+                    <tr>
+                        <td width="10%"><strong>Código</strong></td>
+                        <td width="40%"><strong>Producto</strong></td>
+                        <td width="20%"><strong>Precio</strong></td>
+                        <td width="15%"><strong>Cantidad</strong></td>
+                        <td width="15%"><strong>SubTotal</strong></td>   
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var lineaDeVenta in Model){
+                        <tr>
+                            <td>@lineaDeVenta.IdProducto</td>
+                            <td>@lineaDeVenta.Producto.Nombre</td>
+                            <td>@lineaDeVenta.Producto.Precio</td>
+                            <td>@lineaDeVenta.Cantidad</td>
+                            <td>@lineaDeVenta.Subtotal</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3" id="seccionDescuentos" style="height: 300px; margin-left: 5%; margin-top: 1%">
+            <h3>Tipo de descuento: </h3>
+            <br />
+            <input type="radio" class="radioDescuento" id="porcentaje" name="descuento" value="porcentaje" />
+            <label for="porcentaje" style="margin-right: 30px">Porcentaje</label>
+            <input type="radio" class="radioDescuento" id="efectivo" name="descuento" value="efectivo" />
+            <label for="efectivo">Efectivo</label><br />
+            <input type="number" id="montoDescuento" class="form-control" placeholder="Ingrese monto del descuento" min="0" style="margin-top: 20px; margin-bottom: 20px" />
+            <textarea id="descripcionDescuento" class="form-control" rows="4" placeholder="Escriba una descripción para el descuento (opcional)"></textarea>
+            <button class="btn btn-primary" id="agregarDescuento" style="margin-top: 20px">Agregar</button>
+            <br />
+            <label style="margin-top: 15px">Total de la venta</label>
+            <input type="number" class="form-control" id="totalVenta" style="width: 100%" value="@ViewBag.Total" readonly />
+        </div>
+        <div class="col-md-3" style="margin-top: 6%">
+            <ul id="listaDescuentos" class="list-group">
+                
+            </ul>
+        </div>
+        <div class="col-md-5" style="position: relative; margin-left:50px; float: left">
+            <label>Subtotal de la venta</label>
+            <input type="number" class="form-control" id="subtotalVenta" style="width: 100%; margin-bottom: 15px" value="@ViewBag.Total" readonly/>
+            <button class="btn btn-default" id="editarVenta" data-url='@Url.Action("Venta","Venta")'>Editar</button>
+            <button class="btn btn-primary" style="margin-left: 33%" id="botonFinalizar" onclick="location.href='www.google.com'">Finalizar</button>
+        </div>
+    </div>
+</body>
+</html>

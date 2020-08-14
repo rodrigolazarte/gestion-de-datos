@@ -122,13 +122,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\ConceptoSueldo.cs" />
+    <Compile Include="Models\Domicilio.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\EmpleadoLiquidacion.cs" />
+    <Compile Include="Models\GeneradorDatos.cs" />
+    <Compile Include="Models\LineaDeVenta.cs" />
+    <Compile Include="Models\Liquidacion.cs" />
+    <Compile Include="Models\Novedad.cs" />
+    <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\RolEmpleado.cs" />
+    <Compile Include="Models\TipoEmpleado.cs" />
+    <Compile Include="Models\TipoLiquidacion.cs" />
+    <Compile Include="Models\TipoNovedad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +195,8 @@
     <Content Include="Views\Compra\Partials\_ListaProductos.cshtml" />
     <Content Include="Views\Venta\Venta.cshtml" />
     <Content Include="Views\Venta\Partials\_ListaProductos.cshtml" />
+    <Content Include="Views\Venta\AceptarVenta.cshtml" />
+    <Content Include="Views\Personal\Personal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
