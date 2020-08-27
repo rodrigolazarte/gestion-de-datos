@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompraController.cs" />
+    <Compile Include="Controllers\ConceptosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\VentaController.cs" />
@@ -129,21 +130,25 @@
     </Compile>
     <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\ConceptoSueldo.cs" />
+    <Compile Include="Models\Concepto.cs" />
+    <Compile Include="Models\CuentaUsuario.cs" />
+    <Compile Include="Models\DetalleConcepto.cs" />
+    <Compile Include="Models\DetalleLiquidacion.cs" />
+    <Compile Include="Models\DetalleNovedad.cs" />
     <Compile Include="Models\Domicilio.cs" />
     <Compile Include="Models\Empleado.cs" />
-    <Compile Include="Models\EmpleadoLiquidacion.cs" />
+    <Compile Include="Models\Enumeraciones.cs" />
     <Compile Include="Models\GeneradorDatos.cs" />
     <Compile Include="Models\LineaDeVenta.cs" />
     <Compile Include="Models\Liquidacion.cs" />
-    <Compile Include="Models\Novedad.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\RolEmpleado.cs" />
-    <Compile Include="Models\TipoEmpleado.cs" />
-    <Compile Include="Models\TipoLiquidacion.cs" />
-    <Compile Include="Models\TipoNovedad.cs" />
+    <Compile Include="Models\TipoCliente.cs" />
+    <Compile Include="Models\CategoriaEmpleado.cs" />
+    <Compile Include="Models\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +169,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\compra.js" />
+    <Content Include="Scripts\conceptos.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -197,6 +203,15 @@
     <Content Include="Views\Venta\Partials\_ListaProductos.cshtml" />
     <Content Include="Views\Venta\AceptarVenta.cshtml" />
     <Content Include="Views\Personal\Personal.cshtml" />
+    <Content Include="Views\Personal\Novedades.cshtml" />
+    <Content Include="Views\Personal\EditarEmpleado.cshtml" />
+    <Content Include="Views\Conceptos\Categorias.cshtml" />
+    <Content Include="Views\Conceptos\Partials\_VerConceptosDeCategoria.cshtml" />
+    <Content Include="Views\Conceptos\VerConceptos.cshtml" />
+    <Content Include="Views\Conceptos\AgregarNuevoConcepto.cshtml" />
+    <Content Include="Views\Conceptos\AgregarNuevaCategoria.cshtml" />
+    <Content Include="Views\Conceptos\EditarCategoria.cshtml" />
+    <Content Include="Views\Conceptos\EditarConcepto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,34 @@
+﻿@{ 
+    Layout = null;
+}
+@model viabana_nuevo.Models.CategoriaEmpleado
+
+<h3>Conceptos de sueldo para la categoría de @Model.Descripcion</h3>
+<div class="col-lg-8" style="height: 300px; overflow:auto">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td><strong>Codigo</strong></td>
+                <td><strong>Descripcion</strong></td>
+                <td><strong>Unidad</strong></td>
+                <td><strong>Valor</strong></td>
+                <td><strong>Tipo de concepto</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var concepto in Model.Conceptos)
+            {
+                <tr>
+                    <td>@concepto.Id</td>
+                    <td>@concepto.Descripcion</td>
+                    <td>@concepto.Unidad</td>
+                    <td>@concepto.Valor</td>
+                    <td>@concepto.TipoConcepto</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-3">
+    <button class="btn btn-primary" style="margin-top: 15%">Editar Conceptos para @Model.Descripcion</button>
+</div>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+@model List<viabana_nuevo.Models.CategoriaEmpleado>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Conceptos</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h2>Categorías de empleados</h2>
+        <div class="col-lg-7" style="height: 250px; overflow-y:auto">
+            <table class="table table-hover" style="width: 95%; position: absolute">
+                <thead>
+                    <tr>
+                        <td><strong>Código</strong></td>
+                        <td><strong>Descripción</strong></td>
+                        <td><strong>Sueldo Básico</strong></td>
+                        <td><strong>Expandir</strong></td>
+                        <td><strong>Editar</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var categoria in Model)
+                    {
+                        <tr>
+                            <td>@categoria.Id</td>
+                            <td>@categoria.Descripcion</td>
+                            <td>@categoria.SueldoBasico</td>
+                            <td><span class="glyphicon glyphicon-expand verConceptos" data-url="@Url.Action("VerConceptosDeCategoria", "Conceptos", new { id = categoria.Id})"></span></td>
+                            <td><span class="glyphicon glyphicon-edit editarCategoria" onclick="location.href='@Url.Action("EditarCategoria", "Conceptos", new { id = categoria.Id})'"></span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-5">
+            <button class="btn btn-info" style="float:left; margin-top: 5%" onclick="location.href='@Url.Action("AgregarNuevaCategoria", "Conceptos")'">Agregar Categoria</button>
+            <button class="btn btn-info" style="float:left; margin-top: 5%; margin-left:5%" onclick="location.href='@Url.Action("VerConceptos", "Conceptos")'">Ver Conceptos y Novedades</button>
+        </div>
+        <div class="col-lg-12" id="listaConceptos">
+
+        </div>
+    </div>
+</body>
+</html>

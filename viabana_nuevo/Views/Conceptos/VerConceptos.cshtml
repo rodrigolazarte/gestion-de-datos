@@ -1,0 +1,82 @@
+﻿@model List<viabana_nuevo.Models.Concepto>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerConceptos</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h2>Lista de conceptos</h2>
+        <div class="col-lg-7" style="height:250px; overflow-y: auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td><strong>Código</strong></td>
+                        <td><strong>Descripcion</strong></td>
+                        <td><strong>Valor</strong></td>
+                        <td><strong>Unidad</strong></td>
+                        <td><strong>Editar</strong></td>
+                        <td><strong>Eliminar</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var concepto in Model)
+                    {
+                        if (concepto.TipoConcepto.ToString() == "Sueldo")
+                        {
+                            <tr>
+                                <td>@concepto.Id</td>
+                                <td>@concepto.Descripcion</td>
+                                <td>@concepto.Valor</td>
+                                <td>@concepto.Unidad</td>
+                                <td><span class="glyphicon glyphicon-edit btnEditar" onclick="location.href='@Url.Action("EditarConcepto","Conceptos", new { id = concepto.Id})'" style="color: darkslateblue"></span></td>
+                                <td><span class="glyphicon glyphicon-remove" style="color: #f72a0e"></span></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4" style="height: 250px">
+            <button class="btn btn-primary" style="margin-left: 5%; margin-top:15%;" onclick="location.href='@Url.Action("AgregarNuevoConcepto","Conceptos")'">Agregar Nuevo Concepto o Novedad</button>
+        </div>
+        
+        <div class="col-lg-12">
+            <h2>Lista de Novedades</h2>
+        </div>
+        <div class="col-lg-7" style="height:250px; overflow-y: auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td><strong>Código</strong></td>
+                        <td><strong>Descripcion</strong></td>
+                        <td><strong>Valor</strong></td>
+                        <td><strong>Unidad</strong></td>
+                        <td><strong>Editar</strong></td>
+                        <td><strong>Eliminar</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var concepto in Model)
+                    {
+                        if (concepto.TipoConcepto.ToString() == "Novedad" || concepto.TipoConcepto.ToString() == "Sueldo")
+                        {
+                            <tr>
+                                <td>@concepto.Id</td>
+                                <td>@concepto.Descripcion</td>
+                                <td>@concepto.Valor</td>
+                                <td>@concepto.Unidad</td>
+                                <td><span class="glyphicon glyphicon-edit"  style="color: darkslateblue"></span></td>
+                                <td><span class="glyphicon glyphicon-remove" style="color: #f72a0e"></span></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

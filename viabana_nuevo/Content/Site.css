@@ -26,9 +26,16 @@ textarea {
 /* Estilos propios de la página*/
 
 .menulateral {
+    padding: 0;
+    margin: 0;
     left: 0px;
-    position: absolute;
+    position:absolute;
     width: 175px;
+}
+.menulateral ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
 }
 
 .menulateralopcion {
@@ -36,7 +43,7 @@ textarea {
     height: 30px;
     text-align: left;
     margin-top: 4px;
-    position: relative;
+    
 }
 
     .menulateralopcion:focus,
@@ -85,6 +92,13 @@ textarea {
         color: white !important;
     }
 
+.menulateralopcion .oculto {
+    display:none;
+}
+
+.menulateralopcion .visible{
+    display:block;
+}
 /* Estilo del tab control*/
 .tab {
     overflow: hidden;

@@ -1,0 +1,84 @@
+﻿
+@model viabana_nuevo.Controllers.ViewModelCategoriaDeEmpleado
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditarCategoria</title>
+</head>
+<body>
+    <div class="general-pages">
+    <div class="form-horizontal col-lg-7">
+        <h2>Editar categoría @Model.DescripcionCategoria</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DescripcionCategoria, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.DescripcionCategoria, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DescripcionCategoria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MontoSueldoBasico, "Sueldo (por día)", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MontoSueldoBasico, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConceptosDeSueldo, "Conceptos de sueldo", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <select class="form-control" id="ConceptosDeSueldo">
+                    @foreach (var concepto in Model.ConceptosDeSueldo)
+                    {
+                        <option value="@concepto.Id"
+                                data-valor="@concepto.Valor"
+                                data-unidad="@concepto.Unidad">
+                            @concepto.Descripcion
+                            </option>
+                        }
+                </select>
+                <button class="btn btn-primary" id="agregarConcepto" style="margin-top: 10px">Agregar Concepto</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="submit" value="Modificar categoría" class="btn btn-default" id="crearCategoria" data-url="@Url.Action("EditarCategoria", "Conceptos")" />
+                <button class="btn btn-danger" style="margin-top: 10px" onclick="location.href='@Url.Action("Categorias", "Conceptos")'">Volver</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-5" style="height: 400px; overflow-y: auto; margin-top: 7%">
+        <table class="table table-hover" id="tablaConceptos">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                    <th>Unidad</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach(var concepto in Model.ConceptosDeSueldo)
+                    {
+                        <tr>
+                            <td id="codigo">@concepto.Id</td>
+                            <td>@concepto.Descripcion</td>
+                            <td>@concepto.Valor</td>
+                            <td>@concepto.Unidad</td>
+                            <td><span class='glyphicon glyphicon-erase btnEliminar' style='color: #FF6631'></span></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>

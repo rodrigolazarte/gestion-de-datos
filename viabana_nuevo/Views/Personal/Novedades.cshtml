@@ -1,0 +1,21 @@
+﻿
+<!DOCTYPE html>
+@model List<viabana_nuevo.Models.Concepto>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Novedades</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h2>Novedades de @ViewBag.Empleado.Nombre @ViewBag.Empleado.Apellido</h2>
+        <select>
+            @foreach(var novedad in Model)
+            {
+                <option value="@novedad.Id">@novedad.Descripcion</option>
+            }
+        </select>
+    </div>
+</body>
+</html>

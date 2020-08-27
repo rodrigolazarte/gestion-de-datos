@@ -231,5 +231,156 @@ namespace viabana_nuevo.Models
 
             return listaProductos;
         }
+
+        public static List<CategoriaEmpleado> GenerarCategoriasEmpleados()
+        {
+            var listaCategoriasEmpleados = new List<CategoriaEmpleado>();
+            var listaConceptos = GenerarConceptos();
+
+            var jubilacion = new Concepto();
+
+            jubilacion.Descripcion = "Jubilacion";
+            jubilacion.Id = 2;
+            jubilacion.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
+            jubilacion.Unidad = Enumeraciones.Unidad.Porcentaje;
+            jubilacion.Efecto = Enumeraciones.Efecto.Descuento;
+
+            var categoria1 = new CategoriaEmpleado();
+            var categoria2 = new CategoriaEmpleado();
+            var categoria3 = new CategoriaEmpleado();
+
+            categoria1.Descripcion = "Vendedor";
+            categoria1.Id = 1;
+            categoria1.SueldoBasico = 40000;
+            //categoria1.Conceptos.Add(listaConceptos[1]);
+            //categoria1.Conceptos.Add(listaConceptos[2]);
+            categoria1.Conceptos = listaConceptos;
+
+            categoria2.Descripcion = "Gerente";
+            categoria2.Id = 2;
+            categoria2.SueldoBasico = 50000;
+            //categoria2.Conceptos.Add(listaConceptos[2]);
+            //categoria2.Conceptos.Add(listaConceptos[3]);
+            categoria2.Conceptos = listaConceptos;
+
+            categoria3.Descripcion = "Encargado";
+            categoria3.Id = 3;
+            categoria3.SueldoBasico = 50000;
+            //categoria3.Conceptos.Add(listaConceptos[1]);
+            //categoria3.Conceptos.Add(listaConceptos[0]);
+            categoria3.Conceptos = listaConceptos;
+
+            listaCategoriasEmpleados.Add(categoria1);
+            listaCategoriasEmpleados.Add(categoria2);
+            listaCategoriasEmpleados.Add(categoria3);
+
+            return listaCategoriasEmpleados;
+        }
+
+        public static List<Empleado> GenerarEmpleados() {
+            var listaEmpleados = new List<Empleado>();
+            var listaCategoriasEmpleados = GenerarCategoriasEmpleados();
+
+            var empleado1 = new Empleado();
+            var empleado2 = new Empleado();
+            var empleado3 = new Empleado();
+
+            empleado1.Nombre = "Martin";
+            empleado1.Apellido = "Lazarte";
+            empleado1.DNI = 38246789;
+            empleado1.Legajo = 101;
+            empleado1.CategoriaEmpleado = listaCategoriasEmpleados[0];
+            empleado1.FechaIngreso = DateTime.Now;
+
+            empleado2.Nombre = "Yamila";
+            empleado2.Apellido = "Molina";
+            empleado2.DNI = 00000000;
+            empleado2.Legajo = 102;
+            empleado2.CategoriaEmpleado = listaCategoriasEmpleados[1];
+            empleado2.FechaIngreso = DateTime.Now;
+
+            empleado3.Nombre = "Agustín";
+            empleado3.Apellido = "Amaya";
+            empleado3.DNI = 00000001;
+            empleado3.Legajo = 103;
+            empleado3.CategoriaEmpleado = listaCategoriasEmpleados[2];
+            empleado3.FechaIngreso = DateTime.Now;
+
+            listaEmpleados.Add(empleado1);
+            listaEmpleados.Add(empleado2);
+            listaEmpleados.Add(empleado3);
+
+            return listaEmpleados;
+
+
+        }
+
+        public static List<Concepto> GenerarConceptos()
+        {
+            var listaConceptos = new List<Concepto>();
+
+            var sueldo = new Concepto();
+            var jubilacion = new Concepto();
+            var ley = new Concepto();
+            var presentismo = new Concepto();
+           
+            sueldo.Descripcion = "Sueldo";
+            sueldo.Id = 1;
+            sueldo.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
+            sueldo.Unidad = Enumeraciones.Unidad.Unidad;
+            sueldo.Efecto = Enumeraciones.Efecto.Remuneracion;
+
+            jubilacion.Descripcion = "Jubilacion";
+            jubilacion.Id = 2;
+            jubilacion.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
+            jubilacion.Unidad = Enumeraciones.Unidad.Porcentaje;
+            jubilacion.Efecto = Enumeraciones.Efecto.Descuento;
+
+            ley.Descripcion = "Ley 19032";
+            ley.Id = 3;
+            ley.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
+            ley.Unidad = Enumeraciones.Unidad.Porcentaje;
+            ley.Efecto = Enumeraciones.Efecto.Descuento;
+
+            presentismo.Descripcion = "Presentismo";
+            presentismo.Id = 4;
+            presentismo.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
+            presentismo.Unidad = Enumeraciones.Unidad.Unidad;
+            presentismo.Efecto = Enumeraciones.Efecto.Remuneracion;
+            
+
+            listaConceptos.Add(sueldo);
+            listaConceptos.Add(jubilacion);
+            listaConceptos.Add(ley);
+            listaConceptos.Add(presentismo);
+
+            return listaConceptos;
+
+        }
+
+        public static List<Concepto> GenerarNovedades()
+        {
+            var listaNovedades = new List<Concepto>();
+            var premio = new Concepto();
+            var descuento = new Concepto();
+
+            premio.Descripcion = "Mejor Vendedor del dia";
+            premio.Id = 5;
+            premio.Valor = 1000;
+            premio.TipoConcepto = Enumeraciones.TipoConcepto.Novedad;
+            premio.Unidad = Enumeraciones.Unidad.Unidad;
+            premio.Efecto = Enumeraciones.Efecto.Remuneracion;
+
+            descuento.Descripcion = "Descuento por producto";
+            descuento.Id = 6;
+            descuento.TipoConcepto = Enumeraciones.TipoConcepto.Novedad;
+            descuento.Unidad = Enumeraciones.Unidad.Unidad;
+            descuento.Efecto = Enumeraciones.Efecto.Descuento;
+
+            listaNovedades.Add(premio);
+            listaNovedades.Add(descuento);
+
+            return listaNovedades;
+        }
     }
 }
