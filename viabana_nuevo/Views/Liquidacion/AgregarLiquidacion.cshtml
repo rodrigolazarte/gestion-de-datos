@@ -1,0 +1,41 @@
+﻿@model viabana_nuevo.Controllers.ViewModelAgregarLiquidacion
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AgregarLiquidacion</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h2>Nueva Liquidación</h2>
+        <div class="col-lg-6">
+            <div class="form-group" style="margin-top: 20px">
+                <label for="Descripcion" class="control-label col-md-3">Descripción</label>
+                <input class="form-control" type="text" id="Descripcion" />
+            </div>
+            <div class="form-group" style="margin-top: 20px">
+                <label for="Descripcion" class="control-label col-md-3">Periodo</label>
+                <input class="form-control" type="date" id="Periodo" />
+            </div>
+            <div class="form-group" style="margin-top: 20px">
+                <label for="Categoria" class="control-label col-md-3">Categoria</label>
+                <select class="form-control col-md-1" id="Categoria" style="width: 200px">
+                    @foreach(var categoria in Model.ListaCategorias)
+                    {
+                        <option value="@categoria.Id">@categoria.Descripcion</option>
+                    }
+                </select>
+                <button class="btn btn-default" id="cargarEmpleados" style="background-color: #7cffaf; margin-left:10px" data-url="@Url.Action("ListarEmpleadosALiquidar","Liquidacion", new { idCategoria = "param-index" })">Cargar</button>
+            </div>
+            <button class="btn btn-danger" onclick="location.href='@Url.Action("Liquidaciones", "Liquidacion")'">Volver</button>
+            <button class="btn btn-primary" id="btnGuardar" data-url="@Url.Action("GuardarLiquidacion", "Liquidacion")">Guardar</button>
+        </div>
+        <div class="col-lg-6" id="listaEmpleados">
+            
+        </div>
+    </div>
+</body>
+</html>

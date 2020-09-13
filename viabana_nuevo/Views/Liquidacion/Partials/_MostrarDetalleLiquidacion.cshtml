@@ -1,0 +1,28 @@
+﻿@{ 
+    Layout = null;
+}
+
+@model viabana_nuevo.Models.DetalleLiquidacion
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Monto</th>
+                <th>Efecto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var concepto in Model.DetallesConceptos)
+            {
+                <tr>
+                    <td>@concepto.ConceptoSueldo.Descripcion</td>
+                    <td>@concepto.Cantidad</td>
+                    <td>@concepto.Monto</td>
+                    <td>@concepto.ConceptoSueldo.Efecto</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

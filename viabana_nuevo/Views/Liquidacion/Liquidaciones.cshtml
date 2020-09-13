@@ -1,0 +1,47 @@
+﻿@model List<viabana_nuevo.Models.Liquidacion>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liquidaciones</title>
+</head>
+<body>
+    <div class="general-pages">
+        <h2>Liquidaciones</h2>
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Periodo</th>
+                        <th>Categoria Liquidada</th>
+                        <th>Estado</th>
+                        <th>Ver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var liquidacion in Model)
+                    {
+                        <tr>
+                            <td>@liquidacion.Descripcion</td>
+                            <td>@liquidacion.Periodo.Month/@liquidacion.Periodo.Year</td>
+                            <td>@liquidacion.CategoriaEmpleado.Descripcion</td>
+                            @if (liquidacion.Estado)
+                            {
+                                <td><p style="color: cornflowerblue">Liquidado</p></td>
+                            } else
+                            {
+                                <td><p style="color: orangered">Pendiente</p></td>
+                            }
+                            <td><span class="glyphicon glyphicon-eye-open"></span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("AgregarLiquidacion", "Liquidacion")'">Agregar Nueva Liquidacion</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -237,13 +237,14 @@ namespace viabana_nuevo.Models
             var listaCategoriasEmpleados = new List<CategoriaEmpleado>();
             var listaConceptos = GenerarConceptos();
 
-            var jubilacion = new Concepto();
-
-            jubilacion.Descripcion = "Jubilacion";
-            jubilacion.Id = 2;
-            jubilacion.TipoConcepto = Enumeraciones.TipoConcepto.Sueldo;
-            jubilacion.Unidad = Enumeraciones.Unidad.Porcentaje;
-            jubilacion.Efecto = Enumeraciones.Efecto.Descuento;
+            var jubilacion = new Concepto
+            {
+                Descripcion = "Jubilacion",
+                Id = 2,
+                TipoConcepto = Enumeraciones.TipoConcepto.Sueldo,
+                Unidad = Enumeraciones.Unidad.Porcentaje,
+                Efecto = Enumeraciones.Efecto.Descuento
+            };
 
             var categoria1 = new CategoriaEmpleado();
             var categoria2 = new CategoriaEmpleado();
@@ -289,7 +290,7 @@ namespace viabana_nuevo.Models
             empleado1.Apellido = "Lazarte";
             empleado1.DNI = 38246789;
             empleado1.Legajo = 101;
-            empleado1.CategoriaEmpleado = listaCategoriasEmpleados[0];
+            empleado1.CategoriaEmpleado = listaCategoriasEmpleados[1];
             empleado1.FechaIngreso = DateTime.Now;
 
             empleado2.Nombre = "Yamila";
@@ -381,6 +382,84 @@ namespace viabana_nuevo.Models
             listaNovedades.Add(descuento);
 
             return listaNovedades;
+        }
+
+        public static List<Liquidacion> GenerarLiquidaciones()
+        {
+            var liquidaciones = new List<Liquidacion>();
+            var liquidacion1 = new Liquidacion();
+            var liquidacion2 = new Liquidacion();
+
+            liquidacion1.Id = 1;
+            liquidacion1.Descripcion = "Liquidacion Gerentes Agosto";
+            liquidacion1.CategoriaEmpleado = GenerarCategoriasEmpleados().Find(x => x.Descripcion == "Gerente");
+            liquidacion1.Estado = false;
+            liquidacion1.Periodo = DateTime.Now;
+            liquidacion1.DetalleLiquidaciones = GenerarDetalleLiquidaciones();
+
+            liquidacion2.Id = 2;
+            liquidacion2.Descripcion = "Liquidacion Vendedores Agosto";
+            liquidacion2.CategoriaEmpleado = GenerarCategoriasEmpleados().Find(x => x.Descripcion == "Vendedor");
+            liquidacion2.Estado = false;
+            liquidacion2.Periodo = DateTime.Now;
+
+            liquidaciones.Add(liquidacion1);
+            liquidaciones.Add(liquidacion2);
+
+            return liquidaciones;
+        }
+
+        public static List<DetalleConcepto> GenerarDetalleConceptos()
+        {
+            var detalleConcepto1 = new DetalleConcepto();
+            var detalleConcepto2 = new DetalleConcepto();
+            var detalleConcepto3 = new DetalleConcepto();
+            var detalleConcepto4 = new DetalleConcepto();
+
+            detalleConcepto1.Id = 1;
+            detalleConcepto1.Cantidad = 30;
+            detalleConcepto1.ConceptoSueldo = GenerarConceptos()[0];
+
+            detalleConcepto2.Id = 2;
+            detalleConcepto2.Cantidad = 1;
+            detalleConcepto2.ConceptoSueldo = GenerarConceptos()[1];
+            detalleConcepto2.Monto = 1600;
+
+            detalleConcepto3.Id = 3;
+            detalleConcepto3.Cantidad = 1;
+            detalleConcepto3.ConceptoSueldo = GenerarConceptos()[2];
+            detalleConcepto3.Monto = 1000;
+
+            detalleConcepto4.Id = 4;
+            detalleConcepto4.Cantidad = 1;
+            detalleConcepto4.ConceptoSueldo = GenerarConceptos()[3];
+            detalleConcepto4.Monto = 1200;
+
+            var listaDetalleConcepto = new List<DetalleConcepto>();
+            listaDetalleConcepto.Add(detalleConcepto1);
+            listaDetalleConcepto.Add(detalleConcepto2);
+            listaDetalleConcepto.Add(detalleConcepto3);
+            listaDetalleConcepto.Add(detalleConcepto4);
+
+            return listaDetalleConcepto;
+        }
+
+        public static List<DetalleLiquidacion> GenerarDetalleLiquidaciones()
+        {
+            var detalleLiquidacion1 = new DetalleLiquidacion();
+            detalleLiquidacion1.Id = 1;
+            detalleLiquidacion1.DetallesConceptos = GenerarDetalleConceptos();
+            detalleLiquidacion1.Empleado = GenerarEmpleados()[0];
+            detalleLiquidacion1.SueldoBasico = detalleLiquidacion1.Empleado.CategoriaEmpleado.SueldoBasico;
+            detalleLiquidacion1.DetallesConceptos[0].Monto = detalleLiquidacion1.SueldoBasico;
+            foreach(var detalle in detalleLiquidacion1.DetallesConceptos)
+            {
+                detalleLiquidacion1.TotalLiquidado += detalle.Monto;
+            }
+
+            var listaDetalleLiquidaciones = new List<DetalleLiquidacion>();
+            listaDetalleLiquidaciones.Add(detalleLiquidacion1);
+            return listaDetalleLiquidaciones;
         }
     }
 }
