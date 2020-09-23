@@ -18,6 +18,7 @@
                         <td><strong>Sueldo Básico</strong></td>
                         <td><strong>Expandir</strong></td>
                         <td><strong>Editar</strong></td>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@
                             <td>@categoria.SueldoBasico</td>
                             <td><span class="glyphicon glyphicon-expand verConceptos" data-url="@Url.Action("VerConceptosDeCategoria", "Conceptos", new { id = categoria.Id})"></span></td>
                             <td><span class="glyphicon glyphicon-edit editarCategoria" onclick="location.href='@Url.Action("EditarCategoria", "Conceptos", new { id = categoria.Id})'"></span></td>
+                            <td><span class="glyphicon glyphicon-erase" onclick="location.href='@Url.Action("EliminarCategoria", "Conceptos", new { id = categoria.Id})'"></span></td>
                         </tr>
                     }
                 </tbody>

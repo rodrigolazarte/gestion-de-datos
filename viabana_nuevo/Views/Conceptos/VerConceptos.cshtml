@@ -1,7 +1,6 @@
 ﻿@model List<viabana_nuevo.Models.Concepto>
 
-<!DOCTYPE html>
-
+<!DOCTYPE html> 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -33,7 +32,7 @@
                                 <td>@concepto.Valor</td>
                                 <td>@concepto.Unidad</td>
                                 <td><span class="glyphicon glyphicon-edit btnEditar" onclick="location.href='@Url.Action("EditarConcepto","Conceptos", new { id = concepto.Id})'" style="color: darkslateblue"></span></td>
-                                <td><span class="glyphicon glyphicon-remove" style="color: #f72a0e"></span></td>
+                                <td><span class="glyphicon glyphicon-remove" onclick="location.href='@Url.Action("EliminarConcepto", "Conceptos", new { id = concepto.Id})'" style="color: #f72a0e"></span></td>
                             </tr>
                         }
                     }
@@ -62,15 +61,15 @@
                 <tbody>
                     @foreach (var concepto in Model)
                     {
-                        if (concepto.TipoConcepto.ToString() == "Novedad" || concepto.TipoConcepto.ToString() == "Sueldo")
+                        if (concepto.TipoConcepto.ToString() == "Novedad")
                         {
                             <tr>
                                 <td>@concepto.Id</td>
                                 <td>@concepto.Descripcion</td>
                                 <td>@concepto.Valor</td>
                                 <td>@concepto.Unidad</td>
-                                <td><span class="glyphicon glyphicon-edit"  style="color: darkslateblue"></span></td>
-                                <td><span class="glyphicon glyphicon-remove" style="color: #f72a0e"></span></td>
+                                <td><span class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("EditarConcepto","Conceptos", new { id = concepto.Id})'"  style="color: darkslateblue"></span></td>
+                                <td><span class="glyphicon glyphicon-remove" onclick="location.href='@Url.Action("EliminarConcepto", "Conceptos", new { id = concepto.Id})'" style="color: #f72a0e"></span></td>
                             </tr>
                         }
                     }

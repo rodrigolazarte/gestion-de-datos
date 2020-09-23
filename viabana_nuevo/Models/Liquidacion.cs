@@ -10,6 +10,7 @@ namespace viabana_nuevo.Models
         public int Id { get; set; }
         public string Descripcion { get; set; }
         public List<DetalleLiquidacion> DetalleLiquidaciones { get; set; }
+        public CategoriaEmpleado CategoriaEmpleado { get; set; }
         public DateTime Periodo { get; set; }
         public bool Estado { get; set; }
     }

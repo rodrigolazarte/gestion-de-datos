@@ -262,3 +262,7 @@ textarea {
     border-radius: 5px;
     border: groove #fc2929;
 }
+
+label {
+    display: inline-block;
+}
