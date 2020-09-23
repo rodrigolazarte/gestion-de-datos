@@ -8,6 +8,7 @@ namespace viabana_nuevo.Models
         public string Descripcion { get; set; }
         public float SueldoBasico { get; set; }
         public List<Concepto> Conceptos { get; set; }
+        //public virtual List<ConceptoCategoriaEmpleado> ConceptoCategoriaEmpleados { get; set; }
 
     }
 }

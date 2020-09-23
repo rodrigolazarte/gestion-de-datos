@@ -1,4 +1,6 @@
-﻿namespace viabana_nuevo.Models
+﻿using System.Collections.Generic;
+
+namespace viabana_nuevo.Models
 {
     public class Concepto
     {
@@ -8,7 +10,7 @@
         public Enumeraciones.TipoConcepto TipoConcepto { get; set; }
         public Enumeraciones.Unidad Unidad { get; set; }
         public Enumeraciones.Efecto Efecto { get; set; }
-
+        //public virtual List<ConceptoCategoriaEmpleado> ConceptoCategoriaEmpleados { get; set; }
 
     }
 }
